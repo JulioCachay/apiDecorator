@@ -82,5 +82,17 @@ app.post('/dev-create-user',(req, res)=>{
     }
 })
 
+app.get('/confidential',(req,res)=>{
+    // No safety here, just make it work.
+    const token = req.headers.authorization.split(' ')[1];
+    console.log(token);
+    try {
+        jwt.verify(token, "secretkey");
+        res.status(200).json({message:"confidential content"});
+    } catch (e){
+        res.status(401).json({message:"sorry, you can't see this"});
+    }
+});
+
 // The app listens on http://localhost:5000
 app.listen(5000);
