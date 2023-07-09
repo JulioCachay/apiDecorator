@@ -32,9 +32,9 @@ const secret = "jwtsecret";
 // Add a controller end-point for root '/'.
 // See how the end-point receives the request and response (the pipeline)
 // resonse.send, writes to the response.
-app.get('/',(request, 
+app.get('/hello-paragon',(request, 
              response)=>{
-    response.send('<h1>Good bye World</h1>');
+    response.send('<h1>Paragon says: Hello!</h1>');
 });
 
 app.post('/login',(
@@ -42,7 +42,7 @@ app.post('/login',(
     response)=>{
     
     const data = Model
-        .findOne({email:request.body.email})
+        .findOne({email:reques.body.email})
         .then(r=>{
             if (!r)
             {
