@@ -1,3 +1,5 @@
+using Yarp.ReverseProxy.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddReverseProxy()
@@ -28,3 +30,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
